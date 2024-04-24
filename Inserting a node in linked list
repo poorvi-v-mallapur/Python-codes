@@ -1,0 +1,42 @@
+Inserting a node at tail of linked list
+
+def insertNodeAtTail(head, data):
+   newNode = SinglyLinkedListNode(data)
+   if head == None:
+       return newNode
+   tail = head
+   while tail.next != None:
+       tail = tail.next
+   tail.next = newNode
+   return head
+
+
+
+Inserting a node at head of linked list
+
+def insertNodeAtHead(llist, data):
+   newNode = SinglyLinkedListNode(data)
+   if llist == None:
+       return newNode
+   newNode.next = llist
+   return newNode
+
+
+
+Insert a node at specific position in a linked list
+
+def insertNodeAtPosition(llist, data, position):
+   newNode = SinglyLinkedListNode(data)
+   index = 0
+   curr = llist
+   prev = None
+   while index != position:
+       prev = curr
+       curr = curr.next
+       index += 1   
+   if prev == None:
+       newNode.next = llist
+       return newNode
+   newNode.next = prev.next
+   prev.next = newNode
+   return llist
